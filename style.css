@@ -1,0 +1,99 @@
+/* global */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Abel', sans-serif;
+}
+ul {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+/* header */
+.header {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 8vh;
+  width: 100%;
+  background-color: rgb(60, 60, 60);
+  color: antiquewhite;
+  padding: 0 20px;
+}
+.club-name {
+  display: flex;
+  align-items: center;
+}
+.fa-horse {
+  font-size: 1.2rem;
+}
+.club-name h1 {
+  font-size: 1.5rem;
+  margin-left: 8px;
+}
+.navbar li {
+  display: inline-block;
+}
+.navbar a {
+  padding: calc((8vh - 0.9rem) / 2) 2vh;
+  font-size: 0.9rem;
+  font-family: sans-serif;
+  transition: all 0.4s;
+}
+.navbar a:hover {
+  border-bottom: 3px solid antiquewhite;
+  padding-bottom: calc((8vh - 0.9rem) / 2 - 3px);
+  background-color: rgb(94, 90, 90);
+}
+/* main background image */
+.bg-image {
+  height: 100vh;
+  width: 100%;
+  background: url(media/bg-1.jpg) no-repeat center/cover;
+  animation: slider-bg 30s linear infinite;
+  animation-delay: 5s;
+}
+@keyframes slider-bg {
+  0% {
+    background-image: url(media/bg-1.jpg);
+  }
+  25% {
+    background-image: url(media/bg-3.jpg);
+  }
+  50% {
+    background-image: url(media/bg-1.jpg);
+  }
+  75% {
+    background-image: url(media/bg-3.jpg);
+  }
+  100% {
+    background-image: url(media/bg-1.jpg);
+  }
+}
+.slogan {
+  position: absolute;
+  top: 120%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color:  antiquewhite;
+  text-shadow: 2px 2px 5px #373737;
+  animation: intro 5s ease forwards;
+}
+.slogan p:nth-child(1) {
+  font-size: 3rem;
+  margin-bottom: 2vh;
+}
+.slogan p:nth-child(3) {
+  margin: 2vh;
+  font-size: 1.4rem;
+}
+@keyframes intro {
+  to {
+    top: 50%;
+  }
+}
