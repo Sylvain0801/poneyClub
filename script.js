@@ -1,12 +1,13 @@
 const burger = document.querySelector('.burger')
 const nav = document.querySelector('.navbar')
-const background = document.querySelector('.bg-image')
+const body = document.body
 
-burger.addEventListener('click', () => {
+burger.addEventListener('click', (e) => {
+  e.stopPropagation()
   burger.classList.toggle('active')
   nav.classList.toggle('active')
 })
-background.addEventListener('click', () => {
+body.addEventListener('click', () => {
   burger.classList.remove('active')
   nav.classList.remove('active')
 })
