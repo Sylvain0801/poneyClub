@@ -3,6 +3,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+body {
   font-family: 'Abel', sans-serif;
 }
 ul {
@@ -13,13 +15,17 @@ a {
   color: inherit;
 }
 /* header */
-.header {
+header {
   position: fixed;
+  width: 100%;
+}
+.header {
+  position: relative;
+  height: 8vh;
+  z-index: 5;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 8vh;
-  width: 100%;
   background-color: rgb(60, 60, 60);
   color: antiquewhite;
   padding: 0 20px;
@@ -29,32 +35,100 @@ a {
   align-items: center;
 }
 .fa-horse {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 .club-name h1 {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   margin-left: 8px;
 }
 .navbar li {
   display: inline-block;
 }
 .navbar a {
-  padding: calc((8vh - 0.9rem) / 2) 2vh;
-  font-size: 0.9rem;
+  padding: calc((8vh - 1.2rem) / 2) 2vh;
+  font-size: 1.2rem;
   font-family: sans-serif;
   transition: all 0.4s;
 }
 .navbar a:hover {
   border-bottom: 3px solid antiquewhite;
-  padding-bottom: calc((8vh - 0.9rem) / 2 - 3px);
+  padding-bottom: calc((8vh - 1.2rem) / 2 - 3px);
   background-color: rgb(94, 90, 90);
+}
+@media screen and (max-width: 850px) {
+   .burger {
+    position: absolute;
+    right: 8px;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+  }
+  .burger span {
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: antiquewhite;
+    display: block;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: background-color 0.5s ease-in-out;
+  }
+  .burger span::before, .burger span::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: antiquewhite;
+    transition: transform 0.5s ease-in-out;
+  }
+  .burger span::before {
+    transform: translateY(-10px);
+  }
+  .burger span::after {
+    transform: translateY(10px);
+  }
+  .burger.active span {
+    background-color: transparent;
+  }
+  .burger.active span::before {
+    transform: translateY(0) rotateZ(-45deg);
+  }
+  .burger.active span::after {
+    transform: translateY(0) rotateZ(45deg);
+  }
+  .navbar ul {
+    position: absolute;
+    top: 8vh;
+    right: -50%;
+    z-index: 2;
+    box-shadow: -2px 2px 6px #333333;
+    transition: right 1s ease-in-out;
+    min-width: 40%;
+  }
+  .navbar.active ul {
+    right: 0;
+  }
+  .navbar li {
+    display: block;
+    background-color: rgb(70, 70, 70);
+  }
+  .navbar a {
+    display: block;
+    border-top: 0.5px solid antiquewhite;
+    padding: 15px 35px;
+    font-size: 1rem;
+  }
+  .navbar a:hover {
+    padding-bottom: calc(15px - 2px);
+    border-bottom: none;
+  }
 }
 /* main background image */
 .bg-image {
   height: 100vh;
   width: 100%;
   background: url(media/bg-1.jpg) no-repeat center/cover;
-  animation: slider-bg 30s linear infinite;
+  animation: slider-bg 40s linear infinite;
   animation-delay: 5s;
 }
 @keyframes slider-bg {
@@ -89,7 +163,7 @@ a {
   margin-bottom: 2vh;
 }
 .slogan p:nth-child(3) {
-  margin: 2vh;
+  margin: 2vh auto;
   font-size: 1.4rem;
 }
 @keyframes intro {
