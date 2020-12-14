@@ -76,7 +76,7 @@ header {
     display: block;
     top: 50%;
     transform: translateY(-50%);
-    transition: background-color 0.5s ease-in-out;
+    transition: background-color 0.1s ease-in-out;
   }
   .burger span::before, .burger span::after {
     content: '';
@@ -84,7 +84,7 @@ header {
     width: 100%;
     height: 3px;
     background-color: antiquewhite;
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.1s ease-in-out;
   }
   .burger span::before {
     transform: translateY(-10px);
@@ -104,28 +104,27 @@ header {
   .navbar ul {
     position: absolute;
     top: 8vh;
-    right: -450px;
+    right: 0;
     z-index: 2;
     box-shadow: -2px 2px 6px #333333;
-    transition: right 1s ease-in-out;
     min-width: 40%;
   }
-  .navbar.active ul {
-    right: 0;
-  }
   .navbar li {
-    display: block;
+    display: none;
     background-color: rgb(70, 70, 70);
+  }
+  .navbar.active li {
+    display: block;
   }
   .navbar a {
     display: block;
     border-top: 0.5px solid antiquewhite;
-    padding: 15px 35px;
-    font-size: 1.4rem;
+    padding: 20px 35px;
+    font-size: 1.2rem;
   }
-  .navbar a:hover {
-    padding-bottom: calc(15px - 2px);
-    border-bottom: none;
+  .navbar.active a:hover {
+    padding-bottom: 18px;
+    border-bottom: hidden;
   }
 }
 /* main background image */
@@ -160,17 +159,23 @@ header {
   transform: translate(-50%, -50%);
   text-align: center;
   opacity: 0;
+  width: 80%;
   color:  antiquewhite;
   text-shadow: 2px 2px 5px #373737;
   animation: intro 5s ease forwards;
 }
 .slogan p:nth-child(1) {
   font-size: 4rem;
-  margin-bottom: 2vh;
+  margin: 10vh 0 2vh;
 }
 .slogan p:nth-child(3) {
   margin: 2vh auto;
   font-size: 1.8rem;
+}
+.slogan hr {
+  color:  antiquewhite;
+  max-width: 60%;
+  margin: 0 auto;
 }
 @keyframes intro {
   to {
@@ -306,6 +311,7 @@ header {
 .carte p {
   margin: 20px;
   text-align: justify;
+  overflow: hidden;
 }
 @media screen and (max-width: 500px) {
   .carte {
@@ -343,6 +349,14 @@ header {
   height: 600px;
 }
 @media screen and (max-width: 850px) {
+  .location h2 {
+    font-size: 2rem;
+    padding: 2vh 0;
+  }
+  .location hr {
+    width: 80%;
+    margin: 0 auto 2vh;
+  }
   .google iframe {
     width: 80%;
     height: 400px;
@@ -353,7 +367,7 @@ footer {
   background-color: #373737;
   color: antiquewhite;
   text-align: center;
-  padding: 1vh;
+  padding: 1vh 10px 1vh 20px;
 }
 .social-media a {
   font-size: 1.5rem;
@@ -373,4 +387,13 @@ footer {
 .f-address, .f-mail-tel {
   font-size: 1.2rem;
   padding: 10px 0;
+}
+@media screen and (max-width: 650px) {
+  .footer {
+    flex-direction: column;
+  }
+  .f-address, .f-mail-tel {
+    font-size: 1rem;
+    padding: 0;
+  }
 }
