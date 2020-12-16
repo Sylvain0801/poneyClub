@@ -12,3 +12,10 @@ body.addEventListener('click', () => {
   burger.classList.remove('active')
   setTimeout(() => nav.classList.remove('active'), 300)
 })
+window.onresize = () => {
+  if(window.innerWidth > 1400) {
+    if(burger.className === 'burger active')
+    burger.classList.remove('active')
+    nav.classList.remove('active')
+  } 
+}

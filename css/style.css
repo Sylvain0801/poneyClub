@@ -1,4 +1,7 @@
 /* global */
+:root {
+  --headerHeight : 8vh
+}
 * {
   margin: 0;
   padding: 0;
@@ -25,7 +28,7 @@ header {
 }
 .header {
   position: relative;
-  height: 8vh;
+  height: var(--headerHeight);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -38,104 +41,111 @@ header {
   align-items: center;
 }
 .fa-horse {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 .club-name h1 {
   font-size: 1.8rem;
   margin-left: 8px;
 }
+.burger {
+  position: absolute;
+  right: 15px;
+  top: calc((var(--headerHeight) - 20px) / 2);
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+}
+.burger span {
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: antiquewhite;
+  display: block;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: background-color 0.3s ease-in-out;
+}
+.burger span::before, .burger span::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: antiquewhite;
+  transition: transform 0.3s ease-in-out;
+}
+.burger span::before {
+  transform: translateY(-10px);
+}
+.burger span::after {
+  transform: translateY(10px);
+}
+.burger.active span {
+  background-color: transparent;
+}
+.burger.active span::before {
+  transform: translateY(0) rotateZ(-45deg);
+}
+.burger.active span::after {
+  transform: translateY(0) rotateZ(45deg);
+}
+.navbar ul {
+  position: absolute;
+  top: var(--headerHeight);
+  right: 0;
+  z-index: 2;
+  opacity: 0;
+  min-width: 40%;
+  box-shadow: -2px 2px 6px #333333;
+  transition: opacity 0.3s ease-in-out;
+}
+.navbar.active ul {
+  opacity: 1;
+}
 .navbar li {
-  display: inline-block;
+  display: none;
+  background-color: rgb(70, 70, 70);
+}
+.navbar.active li {
+  display: block;
 }
 .navbar a {
-  padding: calc((8vh - 1.4rem) / 2) 2vh;
-  font-size: 1.4rem;
+  display: block;
+  border-top: 0.5px solid antiquewhite;
+  padding: 20px 35px;
+  font-size: 1rem;
   font-family: sans-serif;
-  transition: all 0.4s;
 }
-.navbar a:hover {
-  border-bottom: 3px solid antiquewhite;
-  padding-bottom: calc((8vh - 1.4rem) / 2 - 3px);
+.navbar.active a:hover {
   background-color: rgb(94, 90, 90);
 }
-.navbar a:active {
-  border-bottom: 3px solid antiquewhite;
-  padding-bottom: calc((8vh - 1.4rem) / 2 - 3px);
-  background-color: rgb(94, 90, 90);
-}
-@media screen and (max-width: 1250px) {
-   .burger {
-    position: absolute;
-    right: 15px;
-    top: calc((8vh - 20px) / 2);
-    width: 30px;
-    height: 20px;
-    cursor: pointer;
-  }
-  .burger span {
-    position: absolute;
-    width: 100%;
-    height: 3px;
-    background-color: antiquewhite;
-    display: block;
-    top: 50%;
-    transform: translateY(-50%);
-    transition: background-color 0.3s ease-in-out;
-  }
-  .burger span::before, .burger span::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 3px;
-    background-color: antiquewhite;
-    transition: transform 0.3s ease-in-out;
-  }
-  .burger span::before {
-    transform: translateY(-10px);
-  }
-  .burger span::after {
-    transform: translateY(10px);
-  }
-  .burger.active span {
-    background-color: transparent;
-  }
-  .burger.active span::before {
-    transform: translateY(0) rotateZ(-45deg);
-  }
-  .burger.active span::after {
-    transform: translateY(0) rotateZ(45deg);
+@media screen and (min-width: 1400px) {
+  .burger {
+    display: none;
   }
   .navbar ul {
-    position: absolute;
-    top: 8vh;
-    right: 0;
-    z-index: 2;
-    opacity: 0;
-    min-width: 40%;
-    box-shadow: -2px 2px 6px #333333;
-    transition: opacity 0.3s ease-in-out;
-  }
-  .navbar.active ul {
     opacity: 1;
+    top: 0;
+    bottom: 0;
+    box-shadow: none;
   }
   .navbar li {
-    display: none;
-    background-color: rgb(70, 70, 70);
-  }
-  .navbar.active li {
-    display: block;
+    display: inline-block;
+    background-color: rgb(60, 60, 60);
   }
   .navbar a {
-    display: block;
-    border-top: 0.5px solid antiquewhite;
-    padding: 20px 35px;
+    border: none;
     font-size: 1.2rem;
+    height:  var(--headerHeight);
+    padding: calc((var(--headerHeight) - 1.2rem) / 2) 10px;
+    margin: 0 10px;
+    transition: all 0.2s;
   }
-  .navbar.active a:hover {
-    padding-bottom: 18px;
-    border-bottom: hidden;
+  .navbar a:hover {
+    border-bottom: 5px solid #fff;
+    background-color: rgb(94, 90, 90);
   }
 }
+
 /* main background image */
 .bg-image {
   height: 100vh;
@@ -167,24 +177,34 @@ header {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  opacity: 0;
   width: 80%;
+  opacity: 0;
   color:  antiquewhite;
   text-shadow: 2px 2px 5px #373737;
   animation: intro 5s ease forwards;
+  margin: 0 auto;
 }
 .slogan p:nth-child(1) {
-  font-size: 4rem;
+  font-size: 3rem;
   margin: 10vh 0 2vh;
 }
 .slogan p:nth-child(3) {
-  margin: 2vh auto;
-  font-size: 1.8rem;
+  margin: 2vh 0;
+  font-size: 1.5rem;
+}
+@media screen and (min-width: 600px) {
+  .slogan {
+    max-width: 800px;
+  }
+  .slogan p:nth-child(1) {
+    font-size: 4rem;
+  }
+  .slogan p:nth-child(3) {
+    font-size: 2rem;
+  }
 }
 .slogan hr {
   color:  antiquewhite;
-  max-width: 60%;
-  margin: 0 auto;
 }
 @keyframes intro {
   to {
@@ -198,13 +218,14 @@ header {
 }
 .content-about {
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
   background-color: antiquewhite;
 }
 .text-about, .img-about {
-  width: 40%;
-  margin: 10vh auto;
+  width: 80%;
+  margin: 8vh auto;
 }
 .text-about h2 {
   text-align: center;
@@ -226,12 +247,12 @@ header {
   box-shadow: 3px 3px 8px black;
   border-radius: 10px;
 }
-@media screen and (max-width: 1250px) {
+@media screen and (min-width: 1200px) {
   .content-about {
-    flex-direction: column;    
+    flex-direction: row;    
   }
   .text-about, .img-about {
-    width: 80%;
+    width: 40%;
     margin: 10vh auto;
   }
 }
@@ -261,9 +282,9 @@ header {
 .carte {
   background-color: antiquewhite;
   color: #373737;
-  width: 400px;
+  width: 90%;
+  margin: 1vh 5%;
   height: 800px;
-  margin: 3%;
   box-shadow: 3px 3px 8px black;
   border-radius: 10px;
   cursor: pointer;
@@ -274,7 +295,7 @@ header {
 }
 .img-horse {
   height: 450px;
-  width: 400px;
+  width: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -319,19 +340,17 @@ header {
 }
 .carte p {
   margin: 20px;
+  font-size: 1.4rem;
   text-align: justify;
   overflow: hidden;
 }
-@media screen and (max-width: 500px) {
+@media screen and (min-width: 500px) {
   .carte {
-    width: 90%;
-    margin: 1vh 5%;
+    width: 400px;
+    margin: 3%;
   }
   .img-horse {
-    width: 100%;
-  }
-  .carte p {
-    font-size: 1.4rem;
+    width: 400px;
   }
 }
 /* section nous trouver */
@@ -340,13 +359,13 @@ header {
 }
 .location h2 {
   text-align: center;
-  font-size: 3rem;
-  padding: 3vh 0;
+  font-size: 2rem;
+  padding: 2vh 0;
 }
 .location hr {
   text-align: center;
-  width: 500px;
-  margin: 0 auto 5vh;
+  width: 80%;
+  margin: 0 auto 2vh;
 }
 .google {
   display: flex;
@@ -354,21 +373,21 @@ header {
   padding-bottom: 5vh;
 }
 .google iframe {
-  width: 800px;
-  height: 600px;
+  width: 80%;
+  height: 400px;
 }
-@media screen and (max-width: 850px) {
+@media screen and (min-width: 850px) {
   .location h2 {
-    font-size: 2rem;
-    padding: 2vh 0;
+    font-size: 3rem;
+    padding: 3vh 0;
   }
   .location hr {
-    width: 80%;
-    margin: 0 auto 2vh;
+    width: 500px;
+    margin: 0 auto 5vh;
   }
   .google iframe {
-    width: 80%;
-    height: 400px;
+    width: 800px;
+    height: 600px;
   }
 }
 /* footer */
@@ -376,7 +395,7 @@ footer {
   background-color: #373737;
   color: antiquewhite;
   text-align: center;
-  padding: 0vh 10px 1vh 20px;
+  padding: 1vh 0;
 }
 .social-media a {
   font-size: 1.5rem;
@@ -389,21 +408,21 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-direction: column;
 }
 .footer h3 {
   font-size: 1.4rem;
 }
 .f-address, .f-mail-tel {
-  font-size: 1.2rem;
-  padding: 10px 0;
+  font-size: 1rem;
 }
-@media screen and (max-width: 650px) {
+@media screen and (min-width: 650px) {
   .footer {
-    flex-direction: column;
-    padding-top: 1vh;
+    padding: 0vh 10px 1vh 20px;
+    flex-direction: row;
+    max-height: 10vh;
   }
   .f-address, .f-mail-tel {
-    font-size: 1rem;
-    padding: 0;
+    font-size: 1.2rem;
   }
 }

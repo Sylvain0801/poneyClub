@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
   <link rel="shortcut icon" href="media/logo-cheval.png">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/styleevents.css">
+  <link rel="stylesheet" href="css/stylecontact.css">
 </head>
 <body>
   <header>
@@ -28,8 +28,8 @@
           <li><a href="index.html#about">A propos</a></li>
           <li><a href="index.html#horses">Nos chevaux</a></li>
           <li><a href="balades.html#">Nos balades</a></li>
+          <li><a href="events.html#">Evénements</a></li>
           <li><a href="index.html#location">Nous trouver</a></li>
-          <li><a href="contact.html#">Nous contacter</a></li>
         </ul>
       </nav>
     </div>
@@ -38,8 +38,22 @@
     </div>
   </header>
   <section>
-    <div class="main-bg">
-      
+    <div class="contact-bg">
+      <h2>Pour nous contacter</h2>
+      <hr>
+      <div class="form">
+        <form>
+          <label for="nom" class="label nom">Nom :</label>
+          <input type="text" class="input nom" id="nom" name="nom" placeholder="Votre nom ici...">
+          <label for="prenom" class="label prenom">Prénom :</label>
+          <input type="text" class="input prenom" id="prenom" name="prenom" placeholder="Votre prénom ici...">
+          <label for="mail" class="label mail">Adresse email :</label>
+          <input type="email" class="input mail" id="mail" name="mail" placeholder="Votre email ici...">
+          <label for="comment" class="label comment">Message :</label>
+          <textarea class="textarea comment" id="comment" name="comment" placeholder="Votre message ici..." rows="4"></textarea>
+          <button type="submit" class="submit">Envoyer</button>
+        </form>
+      </div>
     </div>
   </section>
   

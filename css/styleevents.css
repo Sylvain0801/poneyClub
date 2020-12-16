@@ -1,0 +1,4 @@
+.main-bg {
+  height: 100vh;
+  background: linear-gradient(to bottom, rgb(143, 143, 143) 0%,rgba(55,55,55,1) 41%,rgba(55,55,55,1) 48%,rgba(55,55,55,1) 54%,rgba(55,55,55,1) 61%,rgba(55,55,55,1) 68%,rgba(143,143,143,1) 100%);
+}
