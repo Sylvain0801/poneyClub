@@ -40,6 +40,9 @@ header {
   display: flex;
   align-items: center;
 }
+.club-name:hover {
+  color:antiquewhite
+}
 .fa-horse {
   font-size: 1.3rem;
 }
@@ -88,7 +91,7 @@ header {
 .burger.active span::after {
   transform: translateY(0) rotateZ(45deg);
 }
-.navbar ul {
+.mynavbar ul {
   position: absolute;
   top: var(--headerHeight);
   right: 0;
@@ -98,41 +101,44 @@ header {
   box-shadow: -2px 2px 6px #333333;
   transition: opacity 0.3s ease-in-out;
 }
-.navbar.active ul {
+.mynavbar.active ul {
   opacity: 1;
+  padding: 0;
+  margin: 0;
 }
-.navbar li {
+.mynavbar li {
   display: none;
   background-color: rgb(70, 70, 70);
 }
-.navbar.active li {
+.mynavbar.active li {
   display: block;
 }
-.navbar a {
+.mynavbar a {
   display: block;
   border-top: 0.5px solid antiquewhite;
   padding: 20px 35px;
   font-size: 1rem;
   font-family: sans-serif;
 }
-.navbar.active a:hover {
+.mynavbar.active a:hover {
   background-color: rgb(94, 90, 90);
+  color: antiquewhite;
 }
 @media screen and (min-width: 1400px) {
   .burger {
     display: none;
   }
-  .navbar ul {
+  .mynavbar ul {
     opacity: 1;
     top: 0;
     bottom: 0;
     box-shadow: none;
   }
-  .navbar li {
+  .mynavbar li {
     display: inline-block;
     background-color: rgb(60, 60, 60);
   }
-  .navbar a {
+  .mynavbar a {
     border: none;
     font-size: 1.2rem;
     height:  var(--headerHeight);
@@ -140,9 +146,10 @@ header {
     margin: 0 10px;
     transition: all 0.2s;
   }
-  .navbar a:hover {
+  .mynavbar a:hover {
     border-bottom: 5px solid #fff;
     background-color: rgb(94, 90, 90);
+    color: antiquewhite
   }
 }
 
@@ -192,7 +199,7 @@ header {
   margin: 2vh 0;
   font-size: 1.5rem;
 }
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 900px) {
   .slogan {
     max-width: 800px;
   }

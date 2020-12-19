@@ -1,5 +1,5 @@
 const burger = document.querySelector('.burger')
-const nav = document.querySelector('.navbar')
+const nav = document.querySelector('.mynavbar')
 const body = document.body
 
 burger.addEventListener('click', (e) => {

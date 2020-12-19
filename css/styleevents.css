@@ -1,4 +1,60 @@
-.main-bg {
-  height: 100vh;
-  background: linear-gradient(to bottom, rgb(143, 143, 143) 0%,rgba(55,55,55,1) 41%,rgba(55,55,55,1) 48%,rgba(55,55,55,1) 54%,rgba(55,55,55,1) 61%,rgba(55,55,55,1) 68%,rgba(143,143,143,1) 100%);
+body {
+  font-family: 'Abel', sans-serif;
+}
+.event-bg {
+  background: url(/media/bg-event.jpg) no-repeat center/cover;
+  color: antiquewhite;
+}
+.bg-dark {
+  opacity: 0.6;
+}
+.title {
+  text-shadow: 3px 3px 8px #373737;
+}
+.title h2 {
+  font-size: 2.5rem;
+}
+.title-animation {
+  display: inline-block;
+  overflow: hidden; 
+}
+.title-animation span {
+  display: inline-block;
+}
+.title-animation span > span {
+  opacity: 0;
+  animation: titleAnim 0.5s ease forwards;
+}
+
+@keyframes titleAnim {
+  from {
+    transform: translate(-80px, -100px);
+  }
+  to {
+    transform: translate(0);
+    opacity: 1;
+  }
+}
+
+.programme {
+  position: relative;
+}
+.arrow-down {
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  right: 0;
+  transform: translate(-50%, 100%);
+  opacity: 0.9;
+  border-top: 25px solid #373737d5;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-bottom: 25px solid transparent;
+}
+@media screen and (min-width: 990px) {
+  .title h2 {
+    font-size: 4rem;
+  }
 }
