@@ -20,6 +20,9 @@ a {
   text-decoration: none;
   color: inherit;
 }
+a:visited {
+  color: inherit;
+}
 /* header */
 header {
   position: fixed;
@@ -30,7 +33,6 @@ header {
   position: relative;
   height: var(--headerHeight);
   display: flex;
-  justify-content: space-between;
   align-items: center;
   background-color: rgb(60, 60, 60);
   color: antiquewhite;
@@ -97,7 +99,8 @@ header {
   right: 0;
   z-index: 2;
   opacity: 0;
-  min-width: 40%;
+  min-width: 20%;
+  max-width: 50%;
   box-shadow: -2px 2px 6px #333333;
   transition: opacity 0.3s ease-in-out;
 }
@@ -116,7 +119,7 @@ header {
 .mynavbar a {
   display: block;
   border-top: 0.5px solid antiquewhite;
-  padding: 20px 35px;
+  padding: 10px 25px;
   font-size: 1rem;
   font-family: sans-serif;
 }
@@ -133,6 +136,7 @@ header {
     top: 0;
     bottom: 0;
     box-shadow: none;
+    max-width: 80%;
   }
   .mynavbar li {
     display: inline-block;
@@ -427,7 +431,6 @@ footer {
   .footer {
     padding: 0vh 10px 1vh 20px;
     flex-direction: row;
-    max-height: 10vh;
   }
   .f-address, .f-mail-tel {
     font-size: 1.2rem;
